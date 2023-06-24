@@ -1,10 +1,11 @@
 # TAG WATCHER
 
-WoodWorkProjectWatcher is a Python project designed to monitor and manage woodwork projects. The tool extracts data from predefined data sources, processes it, and sends payloads to a context broker.
+Tagger Watcher is a Python application that monitors a directory for changes and performs certain actions based on the changes detected. It is designed to be configurable through environment variables and provides logging functionality.
+
 
 ## Requirements
 
-- Python 3.9 or later.
+- Python 3.10 or later.
 
 ## Getting Started
 
@@ -46,19 +47,21 @@ The application can be configured using environment variables. You can place the
 
 Here is the list of environment variables:
 
-- `PROJECT_WATCHER_DELAY_FOR_SCAN`: The delay in seconds before a directory is scanned. Default is 20 seconds.
-- `PROJECT_WATCHER_SLEEP_DURATION`: The sleep duration in seconds between directory polls. Default is 0.3 seconds.
-- `PROJECT_WATCHER_NUM_WORKER_THREADS`: Number of worker threads for processing. Default is 4.
-- `PROJECT_WATCHER_PATH_REFERENCE`: The reference path to be used for processing. Default is "mofreitas/clientes/".
-- `PROJECT_WATCHER_CLIENT_ID`: Client ID for authentication.
-- `PROJECT_WATCHER_CLIENT_SECRET`: Client Secret for authentication.
-- `PROJECT_WATCHER_TOKEN_URL`: URL for token retrieval. Default is "http://localhost:8000/auth/token".
-- `PROJECT_WATCHER_URL`: Base URL for the API. Default is "http://127.0.0.1:8000/api/v1".
-- `PROJECT_WATCHER_WATCHING_DIR`: The directory to be monitored. Default is the `BASE_DIR` concatenated with '/home/app/media/public/mofreitas'.
-- `PROJECT_WATCHER_NGSI_LD_CONTEXT`: The NGSI-LD context URL.
-- `PROJECT_WATCHER_CUT_LIST_DIR`: Directory name for cut lists. Default is "Listas de Corte e Etiquetas".
-- `PROJECT_WATCHER_KEYWORD`: Keyword used in processing. Default is "clientes".
 
+
+| Environment Variable  | Description                                                  | Default Value                    |
+|-----------------------|--------------------------------------------------------------|----------------------------------|
+| `PRODUCTION`          | Set to `True` if running in a production environment         | `True`                           |
+| `DELAY_FOR_SCAN`      | Delay (in seconds) between directory scans                    | `5`                              |
+| `MAPPING_FILE`        | Path to the mapping file                                      | `"MAPPING.xlsx"`                 |
+| `SLEEP_DURATION`      | Duration (in seconds) to sleep between scans                  | `1`                              |
+| `NUM_WORKER_THREADS`  | Number of worker threads to use for processing                | `4`                              |
+| `PATH_REFERENCE`      | Reference path                                               | `"mofreitas/clientes/"`          |
+| `WATCHING_DIR`        | Directory to monitor for changes                              | `BASE_DIR / '/home/app/media/public/mofreitas'` |
+| `CUT_LIST_DIR`        | Name of the directory for cut lists and labels                | `"Listas de Corte e Etiquetas"`   |
+| `KEYWORD`             | Keyword to search for in the directory                        | `"clientes"`                     |
+
+You can copy the above table and use it in your README file. Feel free to customize the formatting or add any additional information as needed.
 ### Install Dependencies
 
 Install the required dependencies:
@@ -91,11 +94,4 @@ Specify the license under which your project is distributed.
 
 Iaggo Capitanio - iaggo.capitanio@gmail.com
 
-Project Link: [https://github.com/iaggocapitanio1/WoodWorkProjectWatcher](https://github.com/iaggocapitanio1/WoodWorkProjectWatcher)
-
-
-
-
-## Acknowledgments
-
-- [Nuno](https://github.com/nunoguedesmore)
+Project Link: [https://github.com/iaggocapitanio1/tag-watcher](https://github.com/iaggocapitanio1/tag-watcher)
